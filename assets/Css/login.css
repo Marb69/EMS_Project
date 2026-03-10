@@ -1,0 +1,184 @@
+.login-container {
+  display: flex;
+  flex-direction: column-reverse;
+  max-height: 100vh;
+  min-height: 100vh;
+}
+
+.form-container {
+  flex: 1;
+  position: relative;
+  padding-inline: 18px;
+  align-content: center;
+  height: auto;
+}
+
+.form-container .form {
+  padding: 30px;
+  background-color: #ffffff;
+  margin-inline: auto;
+  max-width: 400px;
+  min-width: 310px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -17px;
+  border-radius: 8px;
+}
+
+.form-container .form .context {
+  flex-direction: column;
+  display: flex;
+
+  margin-bottom: 45px;
+}
+
+.form-container .form .context .title {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #0f172a;
+}
+
+.form-container .form .context .subtext {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 19px;
+}
+
+.form-container .form .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.form-container .form .input-group label {
+  display: block;
+  font-weight: 500;
+  color: #0f172a;
+  margin-left: 5px;
+  margin-bottom: 2px;
+}
+
+.form-container .form .input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form-container .form .input-group input {
+  padding: 14px 17px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f5f9;
+}
+
+.form-container .form #login-btn {
+  background-color: #2563eb;
+  color: #f1f5f9;
+  border-radius: 4px;
+  padding: 14px 18px;
+  border: none;
+  margin-top: 10px;
+}
+.form-container .form #login-btn:hover {
+  background-color: #2b6eff;
+  cursor: pointer;
+}
+.context-container {
+  flex: 1;
+  background: url(../images/loginimage.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 30px;
+  display: flex;
+}
+.context-container .context {
+  margin-inline: auto;
+  max-width: 400px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.context-container .context .text h1 {
+  font-size: 3rem;
+  line-height: 55px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.context-container .context .text p {
+  color: #f1f5f9;
+}
+.context-container .context .text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.context-container .context .text span {
+  color: #f1f5f9;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.context-container .develop {
+  text-align: center;
+}
+.context-container .develop .title {
+  color: #F1F5F9;
+  font-weight: 500;
+}
+.context-container .develop .member {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 10px;
+  color: #D9D9D9;
+}
+
+@media (min-width: 769px) {
+  .form-container .form {
+    max-width: 500px;
+  }
+
+  .context-container .context{
+
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .login-container {
+    flex-direction: row;
+  }
+
+  .form-container {
+    position: static;
+  }
+  .form-container .form {
+    max-width: 450px;
+    position: static;
+  }
+
+  .context-container .develop {
+    text-align: start;
+  }
+  .context-container .context {
+    max-width: 750px;
+  }
+
+    .context-container .context .text{
+
+        max-width: 500px;
+    }
+  .context-container .context .text {
+    text-align: start;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .context-container .context .develop .member {
+    justify-content: start;
+  }
+}
