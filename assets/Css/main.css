@@ -1,18 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('login.css');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("login.css");
+@import url("dashboard.css");
 
+:root {
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --accent-glow: rgba(37, 99, 235, 0.18);
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --danger: #dc2626;
+  --radius: 10px;
 
-*{
-
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  --sidebar-w: 260px;
+  --header-h: 64px;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --sidebar-bg: #0f172a;
+  --sidebar-txt: #cbd5e1;
+  --sidebar-sub: #64748b;
 }
 
-body{
-
-
-    font-family: 'Inter',sans-serif;
-    background-color: #F1F5F9;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+html,
+body {
+  height: 100%;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+}
+
