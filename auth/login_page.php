@@ -110,10 +110,10 @@
     </form>
 
     <div class="login-footer">
-      Need help? Contact <strong>IT Support</strong>.
+      Need help?  <strong>Pass di ko</strong>.
     </div>
 
-    <div class="copyright">© <?php echo date('Y'); ?> Employee Management System. All rights reserved.</div>
+   
 
   </div>
 

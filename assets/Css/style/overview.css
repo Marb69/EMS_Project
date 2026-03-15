@@ -1,0 +1,192 @@
+@keyframes ems-fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes ems-shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.ems-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  font-family: "DM Sans", sans-serif;
+}
+@media (max-width: 900px) {
+  .ems-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .ems-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ems-sc {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 20px 22px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    box-shadow 0.22s,
+    transform 0.22s;
+  animation: ems-fadeUp 0.45s ease both;
+}
+.ems-sc:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+
+.ems-sc::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 10px 10px 0 0;
+}
+.ems-sc--blue::before {
+  background: #2563eb;
+}
+.ems-sc--green::before {
+  background: #16a34a;
+}
+.ems-sc--amber::before {
+  background: #d97706;
+}
+.ems-sc--danger::before {
+  background: #dc2626;
+}
+
+
+.ems-sc::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.32),
+    transparent
+  );
+  background-size: 400px 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.ems-sc:hover::after {
+  opacity: 1;
+  animation: ems-shimmer 0.8s linear infinite;
+}
+
+
+.ems-sc:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.ems-sc:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.ems-sc:nth-child(3) {
+  animation-delay: 0.19s;
+}
+.ems-sc:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+
+.ems-sc__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.ems-sc__label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.65px;
+}
+.ems-sc__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.ems-sc__icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+
+.ems-ic--blue {
+  background: #eff6ff;
+  color: #2563eb;
+}
+.ems-ic--green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+.ems-ic--amber {
+  background: #fef3c7;
+  color: #d97706;
+}
+.ems-ic--danger {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+
+.ems-sc__value {
+  font-family: "Syne", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+
+.ems-sc__sub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #6b7280;
+}
+.ems-sc__badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+.ems-bdg--up {
+  background: #dcfce7;
+  color: #15803d;
+}
+.ems-bdg--down {
+  background: #fee2e2;
+  color: #dc2626;
+}
+.ems-bdg--warn {
+  background: #fef9c3;
+  color: #92400e;
+}

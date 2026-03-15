@@ -1,31 +1,21 @@
-
-
 <?php
 
 
-$page = $_GET['page'] ?? 'login';
+$section = $_GET['section'] ?? 'overview'; // default section
 
-
-switch ($page) {
-
-    case 'login':
-
-        include './auth/login_page.php';
-
+switch ($section) {
+    case 'overview':
+        include './view/page/dashboard.php';
         break;
 
-    case 'admin';
-
-       include './view/admin.php';
+    case 'employees':
+        include './view/page/employee.php';
         break;
 
-    case 'employee_pf':
-
-        include './view/employee_pf.php';
-
+    case 'departments':
+        include './view/page/department.php';
         break;
 
     default:
-        echo 'Page Not Found';
+        echo "<p>Section not found</p>";
 }
-?>

@@ -55,7 +55,7 @@
 .heading {
   margin-bottom: 2rem;
 }
-h1 {
+.heading h1 {
   font-size: clamp(1.5rem, 3vw, 1.9rem);
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -86,7 +86,7 @@ h1 {
   margin-bottom: 1rem;
 }
 
-label {
+#loginform .field label {
   display: block;
   font-size: 0.8rem;
   font-weight: 600;
@@ -155,7 +155,6 @@ input:focus {
   color: var(--muted);
 }
 
-
 .btn {
   width: 100%;
   margin-top: 1.6rem;
@@ -184,7 +183,6 @@ input:focus {
   box-shadow: none;
 }
 
-
 .login-footer {
   margin-top: 1.5rem;
   font-size: 0.78rem;
@@ -195,7 +193,6 @@ input:focus {
   color: var(--text);
 }
 
-
 .copyright {
   position: absolute;
   bottom: 1.5rem;
@@ -205,7 +202,6 @@ input:focus {
   font-size: 0.72rem;
   color: #d1d5db;
 }
-
 
 .image-panel {
   flex: 1;
@@ -224,7 +220,6 @@ input:focus {
   object-position: center;
 }
 
-
 .image-panel::after {
   content: "";
   position: absolute;
@@ -236,7 +231,6 @@ input:focus {
     rgba(17, 24, 39, 0.7) 100%
   );
 }
-
 
 .image-content {
   position: relative;
@@ -290,7 +284,6 @@ input:focus {
   margin-bottom: 2rem;
   max-width: 420px;
 }
-
 
 .team-label {
   font-size: 0.72rem;
@@ -371,7 +364,6 @@ input:focus {
   background: rgba(110, 231, 183, 0.1);
 }
 
-
 .role-toggle {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -407,7 +399,6 @@ input:focus {
   color: var(--accent);
   font-weight: 600;
 }
-
 
 @media (max-width: 768px) {
   .page {

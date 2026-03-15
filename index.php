@@ -1,26 +1,20 @@
 <?php
 
-
 session_start();
 
-$page = $_GET['page'] ?? 'login';
-
-if (!isset($_SESSION['user'], $_SESSION['role']) && $page != 'login') {
 
 
-    header('location: index.php?page=login');
-    exit;
-}
+include './middleware/auth_check.php';
 
 
 
-if (isset($_SESSION['user'], $_SESSION['role']) && $page == 'login') {
+if (isset($_SESSION['user'], $_SESSION['role']) && $page === 'login') {
 
 
     if ($_SESSION['role'] == 'admin') {
         header("Location: index.php?page=admin");
         exit;
-    } else {
+    } elseif ($_SESSION['role'] == 'employee') {
 
         header("Location: index.php?page=employee_pf");
         exit;
@@ -40,24 +34,53 @@ if (isset($_SESSION['user'], $_SESSION['role']) && $page == 'login') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/Css/main.css">
-    <link rel="stylesheet" href="./assets/Css/login.css">
     <title><?php echo $page ?></title>
 </head>
 
 <body>
+    <?php
+
+    $page = $_GET['page'] ?? 'login';
+
+
+    function require_role($role)
+    {
+        if (!isset($_SESSION['role']) || $_SESSION['role'] != $role) {
+            header("Location: index.php?page=dashboard");
+            exit();
+        }
+    }
+
+    switch ($page) {
+        case 'login':
+            include './auth/login_page.php';
+            break;
+
+        case 'dashboard':
+            if ($_SESSION['role'] == 'admin') {
+                include './view/admin.php';
+            } else {
+                include './view/employee_pf.php';
+            }
+            break;
+
+        case 'employee_pf':
+            require_role('employee');
+            include './view/employee_pf.php';
+            break;
+
+        case 'admin':
+            require_role('admin');
+            include './view/admin.php';
+            break;
+
+        default:
+            include './view/404.php';
+    } ?>
 
 
 
- 
- 
-
-
-
-<?php include './router.php' ?>
-
-
-
-    <script type="module" src="./assets/Js/mian.js"></script>
+    <script type="module" src="./assets/Js/main.js"></script>
 
 
 

@@ -76,7 +76,7 @@
     }
     .nav-badge.danger { background: var(--danger); }
  
-    /* User card */
+
     .sidebar__user {
       border-top: 1px solid rgba(255,255,255,.07);
       padding: 14px 16px;
@@ -125,20 +125,8 @@
     .header__title span { color: var(--accent); }
  
 
-    .header__search {
-      display: flex; align-items: center; gap: 8px;
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: 8px; padding: 0 12px;
-      height: 36px; width: 220px; transition: border-color .2s;
-    }
-    .header__search:focus-within { border-color: var(--accent); }
-    .header__search svg { width: 15px; height: 15px; color: var(--muted); flex-shrink: 0; }
-    .header__search input {
-      border: none; background: transparent; outline: none;
-      font-size: 13px; color: var(--text); width: 100%;
-      font-family: 'DM Sans', sans-serif;
-    }
-    .header__search input::placeholder { color: var(--muted); }
+
+ 
  
 
     .header__actions { display: flex; align-items: center; gap: 6px; }
@@ -158,16 +146,6 @@
     }
 
 
-    .header__divider { width: 1px; height: 24px; background: var(--border); }
- 
-
-    .header__avatar {
-      width: 34px; height: 34px; border-radius: 50%;
-      background: var(--accent); display: grid; place-items: center;
-      font-size: 12px; font-weight: 700; color: #fff; cursor: pointer;
-      border: 2px solid var(--border); transition: border-color .15s;
-    }
-    .header__avatar:hover { border-color: var(--accent); }
  
 
     .content {

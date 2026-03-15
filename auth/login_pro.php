@@ -30,7 +30,7 @@ try {
 
         if ($user['role'] == "admin") {
 
-            header('location: ../index.php?page=adddmin');
+            header('location: ../index.php?page=admin');
 
             exit;
         } elseif ($user['role'] == 'employee') {

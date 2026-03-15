@@ -14,13 +14,6 @@
             </div>
 
 
-            <div class="header__search">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>
-                <input type="text" placeholder="Search employees, records…" />
-            </div>
 
             <div class="header__actions">
 
@@ -40,14 +33,12 @@
                     </svg>
                 </a>
 
-                <div class="header__divider"></div>
+            
 
 
-                <a href="profile.php" class="header__avatar" title="My Profile">
-                    <?= htmlspecialchars($user_avatar) ?>
-                </a>
+               
 
-                <a href="/auth/logout.php" class="icon-btn" title="Logout">
+                <a href="./auth/logout.php" class="icon-btn" title="Logout">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
                         <polyline points="16 17 21 12 16 7" />

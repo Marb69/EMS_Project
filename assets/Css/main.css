@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import url("login.css");
-@import url("dashboard.css");
+@import url("./style/profile.css");
+@import url("./style/login.css");
+@import url("./style/dashboard.css");
+@import url("./style/overview.css");
 
 :root {
   --accent: #2563eb;
@@ -11,7 +13,6 @@
   --border: #e5e7eb;
   --danger: #dc2626;
   --radius: 10px;
-
   --sidebar-w: 260px;
   --header-h: 64px;
   --bg: #f8fafc;
@@ -19,6 +20,7 @@
   --sidebar-bg: #0f172a;
   --sidebar-txt: #cbd5e1;
   --sidebar-sub: #64748b;
+  --accent-lt: #dbeafe;
 }
 
 * {
@@ -33,4 +35,3 @@ body {
   font-family: "Inter", sans-serif;
   color: var(--text);
 }
-
