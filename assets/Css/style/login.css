@@ -82,11 +82,11 @@
   padding: 0.65rem 0.9rem;
   margin-bottom: 1.1rem;
 }
-.field {
+#loginForm .field {
   margin-bottom: 1rem;
 }
 
-#loginform .field label {
+#loginForm .field label {
   display: block;
   font-size: 0.8rem;
   font-weight: 600;
@@ -109,8 +109,8 @@
   transition: color 0.2s;
 }
 
-input[type="text"],
-input[type="password"] {
+#loginForm  input[type="text"],
+#loginForm  input[type="password"] {
   width: 100%;
   padding: 0.75rem 1rem 0.75rem 2.6rem;
   background: #f9fafb;
@@ -126,10 +126,10 @@ input[type="password"] {
     background 0.2s;
   appearance: none;
 }
-input::placeholder {
+#loginForm  input::placeholder {
   color: #9ca3af;
 }
-input:focus {
+#loginForm input:focus {
   border-color: var(--accent);
   background: #fff;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);

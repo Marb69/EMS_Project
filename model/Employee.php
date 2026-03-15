@@ -26,4 +26,14 @@ class Employee
     }
 
 
+     
+    public function getAllEmployee(){
+
+        $stmt = $this->conn->prepare('SELECT * FROM employee');
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 }

@@ -34,10 +34,11 @@ if (isset($_SESSION['user'], $_SESSION['role']) && $page === 'login') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/Css/main.css">
-    <title><?php echo $page ?></title>
+    <link rel="shortcut icon" href="./favicon/favicon.ico" type="image/x-icon">
+    <title><?= $page?></title>
 </head>
 
-<body>
+<body data-page="<?= $page ?>">
     <?php
 
     $page = $_GET['page'] ?? 'login';

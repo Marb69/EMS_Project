@@ -3,6 +3,7 @@
 @import url("./style/login.css");
 @import url("./style/dashboard.css");
 @import url("./style/overview.css");
+@import url("./style/employee.css");
 
 :root {
   --accent: #2563eb;
@@ -21,6 +22,11 @@
   --sidebar-txt: #cbd5e1;
   --sidebar-sub: #64748b;
   --accent-lt: #dbeafe;
+   --accent-lt: #eff6ff;
+     --green:     #16a34a;
+      --green-lt:  #dcfce7;
+        --amber:     #d97706;
+      --amber-lt:  #fef3c7;
 }
 
 * {

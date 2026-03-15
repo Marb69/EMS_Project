@@ -62,6 +62,7 @@
       </div>
 
       <div class="field">
+        <label for="username">Username</label>
         <div class="input-wrap">
           <span class="icon">
             <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
