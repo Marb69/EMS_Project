@@ -23,6 +23,16 @@
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getAllDepartments(){
+
+      
+
+       $stmt = $this->conn->prepare('SELECT * FROM department');
+       $stmt->execute();
+
+       return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
      
   } 
 

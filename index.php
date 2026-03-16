@@ -35,7 +35,7 @@ if (isset($_SESSION['user'], $_SESSION['role']) && $page === 'login') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/Css/main.css">
     <link rel="shortcut icon" href="./favicon/favicon.ico" type="image/x-icon">
-    <title><?= $page?></title>
+    <title><?= $page ?></title>
 </head>
 
 <body data-page="<?= $page ?>">

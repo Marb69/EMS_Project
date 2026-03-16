@@ -1,13 +1,8 @@
 <?php
 
+include './controller/EmployeeController.php';
 
-include './config/db.php';
-include './model/Employee.php';
-include './model/Department.php';
 
-$EmployeeModel = new Employee($conn);
-$department = new Department($conn);
-$Employees = $EmployeeModel->getAllEmployee();
 ?>
 
 <div class="main-em">
@@ -69,10 +64,12 @@ $Employees = $EmployeeModel->getAllEmployee();
 
                     <?php foreach ($Employees as $em): ?>
 
+                        
+                    
 
-                        <?php $Departments = $department->getDepartmentById($em['department']) ?>
 
-                        <tr data-dept="<?= $Departments['department'] ?>" data-status="<?= $em['status'] ?>">
+
+                        <tr data-dept="<?=0?>" data-status="<?= $em['status'] ?>">
                             <td>
                                 <div class="emp-cell">
                                     <div class="emp-av" style="background:#2263eb"><?php
@@ -90,10 +87,10 @@ $Employees = $EmployeeModel->getAllEmployee();
                                     </div>
                                 </div>
                             </td>
-                            <td><span class="dept" ><?= $Departments['department'] ?></span></td>
+                            <td><span class="dept"><?= $deptID = $em['department_id']?></span></td>
                             <td style="color:var(--muted)"><?= $em['position'] ?></td>
                             <td style="font-family:'DM Mono',monospace;font-size:12px;color:var(--muted)"><?= $em['date_hired'] ?></td>
-                            <td><span class="pill pill-active" ><?= $em['status'] ?></span></td>
+                            <td><span class="pill <?= $em['status'] === "Active" ? 'pill-active' : 'pill-inactive' ?>"><?= $em['status'] ?></span></td>
                             <td>
                                 <div class="actions">
                                     <a href="employee_profile.html" class="act act-view" title="View">
@@ -137,6 +134,8 @@ $Employees = $EmployeeModel->getAllEmployee();
 
 
     <div class="overlay" id="addModal" onclick="if(event.target===this)this.classList.remove('open')">
+
+
         <div class="modal">
             <div class="modal-head">
                 <h2>Add New Employee</h2>
@@ -147,7 +146,7 @@ $Employees = $EmployeeModel->getAllEmployee();
                     </svg>
                 </button>
             </div>
-            <form method="POST" action="add_employee.php">
+            <form method="POST" action="/controller/EmployeeController.php">
                 <div class="modal-body">
                     <div class="fg">
                         <label>First Name</label>
@@ -165,11 +164,13 @@ $Employees = $EmployeeModel->getAllEmployee();
                         <label>Department</label>
                         <select name="department">
                             <option value="">Select…</option>
-                            <option>Engineering</option>
-                            <option>Sales</option>
-                            <option>HR & Admin</option>
-                            <option>Operations</option>
-                            <option>IT</option>
+
+                            <?php foreach($AllDept as $dept): ?>
+
+                                <option><?= $dept['department'] ?></option>
+
+                             <?php endforeach;?>
+
                         </select>
                     </div>
                     <div class="fg">
@@ -185,13 +186,14 @@ $Employees = $EmployeeModel->getAllEmployee();
                         <select name="status">
                             <option value="Probationary">Probationary</option>
                             <option value="Active">Active</option>
+
                         </select>
                     </div>
 
                 </div>
                 <div class="modal-foot">
                     <button type="button" class="btn-em btn-ghost" onclick="document.getElementById('addModal').classList.remove('open')">Cancel</button>
-                    <button type="submit" class="btn-em btn-primary">
+                    <button type="submit" class="btn-em btn-primary" name="add_employee">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="12" y1="5" x2="12" y2="19" />
                             <line x1="5" y1="12" x2="19" y2="12" />

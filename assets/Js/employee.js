@@ -25,8 +25,6 @@ export const Employee = () => {
     var count = 0;
 
     rows.forEach(function (row) {
-    
-
       var match =
         row.textContent.toLowerCase().includes(search) &&
         (dept === "" || row.dataset.dept === dept) &&
@@ -35,21 +33,8 @@ export const Employee = () => {
       if (match) count++;
     });
 
-  
-
-
     document.getElementById("emptyState").style.display =
       count === 0 ? "block" : "none";
   }
 
-  
-    pill.forEach((pl) => {
-
-      debugger
-      if (rows.dataset.status === "Active") {
-        pl.classList.add("pill-Active");
-      } else if (rows.dataset.status === "Inactive") {
-        pl.classList.add("pill-Inactive");
-      }
-    });
 };
