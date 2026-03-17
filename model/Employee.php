@@ -18,7 +18,7 @@ class Employee
     public function getEmployeeById($id)
     {
 
-        $stmt = $this->conn->prepare("SELECT * FROM employee WHERE user_id = ?");
+        $stmt = $this->conn->prepare("SELECT * FROM employees WHERE user_id = ?");
         $stmt->execute([$id]);
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -28,22 +28,23 @@ class Employee
      
     public function getAllEmployee(){
 
-        $stmt = $this->conn->prepare('SELECT * FROM employee');
+        $stmt = $this->conn->prepare('SELECT * FROM employees');
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function addEmployee($firstname,$lastname,$department,$postion,$email,$status,$date){
+    public function addEmployee($userId,$firstname,$lastname,$department,$position,$email,$status,$date){
 
     
-    $sql = "INSERT INTO employee (name,department,postion,contact,status,date_hired) VALUES (:fullname,:dapartment,:postion,:contact,:status,:date_hired)";
+    $sql = "INSERT INTO employee (user_id,name,department,position,contact,status,date_hired) VALUES (:userId, :fullname,:dapartment,:position,:contact,:status,:date_hired)";
 
     $stmt = $this->conn->prepare($sql);
     $stmt->execute([
+        ':userId' => $userId,
         ':fullname' => $firstname . $lastname,
         ':department' => $department,
-        ':postion' => $postion,
+        ':position' => $position,
         ':contact' => $email,
         ':status' => $status,
         ':date_hired' => $date

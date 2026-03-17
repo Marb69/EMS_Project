@@ -13,7 +13,7 @@ $role = $_POST['role'];
 
 try {
 
-    $sql = "SELECT * FROM user WHERE username = :username LIMIT 1";
+    $sql = "SELECT * FROM users WHERE username = :username LIMIT 1";
     $stmt = $conn->prepare($sql);
     $stmt->execute([':username' => $username]);
 

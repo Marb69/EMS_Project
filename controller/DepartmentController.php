@@ -1,14 +1,17 @@
 <?php
 
 include './config/db.php';
-include './controller/DepartmentController.php';
+include './model/Department.php';
 
 $Departments = new Department($conn);
 
 
+$AllDept = $Departments->getAllDepartments();
 
-$deptID = 0;
-$dept = $Departments->getDepartmentById($deptID);
+
+
+
+
 
 
 
