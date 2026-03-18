@@ -33,6 +33,7 @@
   border: none;
   font-family: "DM Sans", sans-serif;
   transition: filter 0.15s;
+  text-decoration: none;
 }
 .btn-em svg {
   width: 14px;

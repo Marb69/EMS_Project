@@ -22,6 +22,10 @@ switch ($section) {
         include './view/page/user.php';
         break;
 
+    case 'add_employee':
+        include './view/page/addFormEmployee.php';
+        break;
+
     default:
         echo "<p>Section not found</p>";
 }

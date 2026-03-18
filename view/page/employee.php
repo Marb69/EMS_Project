@@ -1,7 +1,8 @@
 <?php
 
+
 include './controller/EmployeeController.php';
-include './controller/DepartmentController.php' 
+include './controller/DepartmentController.php';
 
 ?>
 
@@ -11,13 +12,13 @@ include './controller/DepartmentController.php'
             <h1>Employees</h1>
             <p>Manage all employee records</p>
         </div>
-        <button class="btn-em btn-primary" onclick="document.getElementById('addModal').classList.add('open')">
+        <a href="index.php?page=admin&section=add_employee" class="btn-em btn-primary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="12" y1="5" x2="12" y2="19" />
                 <line x1="5" y1="12" x2="19" y2="12" />
             </svg>
             Add Employee
-        </button>
+        </a>
     </div>
 
 
@@ -133,6 +134,6 @@ include './controller/DepartmentController.php'
     </div>
 
 
-    <?php include './view/modal/add_employeeModal.php' ?>
+   
 
 </div>
