@@ -9,6 +9,8 @@ switch ($section) {
         break;
 
     case 'employees':
+
+        include './controller/EmployeeController.php';
         include './view/page/employee.php';
         break;
 
@@ -23,7 +25,10 @@ switch ($section) {
         break;
 
     case 'add_employee':
+
+        include './controller/EmployeeController.php';
         include './view/page/addFormEmployee.php';
+
         break;
 
     default:

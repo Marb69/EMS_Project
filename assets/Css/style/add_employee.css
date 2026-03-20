@@ -58,7 +58,6 @@
   font-size: 18px;
 }
 .ae-page-head h1 {
-  font-family: "Syne", sans-serif;
   font-size: 20px;
   font-weight: 800;
   color: var(--ae-text);
@@ -134,7 +133,7 @@
   padding: 20px;
 }
 
-/* Grid + fields */
+
 .ae-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -162,7 +161,6 @@
   padding: 10px 12px;
   border: 1px solid var(--ae-border);
   border-radius: 8px;
-  font-family: "DM Sans", sans-serif;
   font-size: 13px;
   color: var(--ae-text);
   background: var(--ae-surface);
@@ -181,7 +179,7 @@
   color: #9ca3af;
 }
 
-/* Password wrap */
+
 .ae-pass-wrap {
   position: relative;
 }
@@ -209,7 +207,6 @@
   height: 15px;
 }
 
-/* Footer */
 .ae-footer {
   display: flex;
   align-items: center;
@@ -228,7 +225,6 @@
   font-weight: 600;
   cursor: pointer;
   border: none;
-  font-family: "DM Sans", sans-serif;
   transition:
     filter 0.15s,
     transform 0.1s;

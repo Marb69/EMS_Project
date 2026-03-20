@@ -23,11 +23,11 @@
   --sidebar-txt: #cbd5e1;
   --sidebar-sub: #64748b;
   --accent-lt: #dbeafe;
-   --accent-lt: #eff6ff;
-     --green:     #16a34a;
-      --green-lt:  #dcfce7;
-        --amber:     #d97706;
-      --amber-lt:  #fef3c7;
+  --accent-lt: #eff6ff;
+  --green: #16a34a;
+  --green-lt: #dcfce7;
+  --amber: #d97706;
+  --amber-lt: #fef3c7;
 }
 
 * {

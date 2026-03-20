@@ -1,11 +1,16 @@
 <?php
-
-
 include './controller/DepartmentController.php';
 include './controller/PostionController.php';
+
+include './view/alert.php';
 ?>
 
+<?php if (isset($error)): ?>
+    <div class="alert alert-error"><?= htmlspecialchars($error) ?></div>
+<?php endif; ?>
+
 <main class="ae-main">
+
 
     <div class="ae-page-head">
         <a href="index.php?page=admin&section=employees" class="ae-back-btn">
@@ -18,7 +23,7 @@ include './controller/PostionController.php';
         <h1>Add New Employee</h1>
     </div>
 
-    <form method="POST" action="./controller/EmployeeController.php" class="ae-form">
+    <form method="POST" action="index.php?page=admin&section=add_employee" class="ae-form" id="add-employee-form">
 
 
         <div class="ae-card">
@@ -77,7 +82,7 @@ include './controller/PostionController.php';
                 <div class="ae-grid">
                     <div class="ae-field">
                         <label>Department</label>
-                        <select name="department">
+                        <select name="department" required>
                             <option value="">Select department…</option>
 
                             <?php foreach ($AllDept as $dept): ?>
@@ -87,14 +92,14 @@ include './controller/PostionController.php';
                     </div>
                     <div class="ae-field">
                         <label>Position</label>
-                       <select name="position" id="">
+                        <select name="position" id="" required>
 
-                       <option value="">Select...</option>
+                            <option value="">Select...</option>
 
-                       <?php foreach ($AllPostion as $position): ?>
-                            <option value="<?= $position['id'] ?>"><?= $position['title'] ?></option>
-                        <?php endforeach; ?>
-                       </select>
+                            <?php foreach ($AllPostion as $position): ?>
+                                <option value="<?= $position['id'] ?>"><?= $position['title'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="ae-field">
                         <label>Salary</label>
@@ -106,7 +111,7 @@ include './controller/PostionController.php';
                     </div>
                     <div class="ae-field ae-full">
                         <label>Employment Status</label>
-                        <select name="status">
+                        <select name="status" required>
                             <option value="Probationary">Probationary</option>
                             <option value="Active">Active</option>
                             <option value="Inactive">Inactive</option>
@@ -161,7 +166,7 @@ include './controller/PostionController.php';
 
 
         <div class="ae-footer">
-            <a href="employees_page.html" class="ae-btn ae-btn-ghost">Cancel</a>
+            <a href="index.php?page=admin&section=add_employee" class="ae-btn ae-btn-ghost">Cancel</a>
             <button type="submit" class="ae-btn ae-btn-primary">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
@@ -173,3 +178,4 @@ include './controller/PostionController.php';
         </div>
 
     </form>
+

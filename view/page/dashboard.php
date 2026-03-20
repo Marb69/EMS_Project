@@ -1,16 +1,3 @@
-<?php
-
-
-
-
-include './config/db.php';
-include './model/Employee.php';
-
-$EmployeeModel = new Employee($conn);
-$Employees = $EmployeeModel->getAllEmployee();
-
-
-?>
 
 
 <div class="ems-stats">
@@ -28,7 +15,7 @@ $Employees = $EmployeeModel->getAllEmployee();
         </svg>
       </div>
     </div>
-    <div class="ems-sc__value" data-ems-count="<?= count($Employees)?>">0</div>
+    <div class="ems-sc__value" data-ems-count="">0</div>
     <div class="ems-sc__sub">
 
       No record
@@ -46,7 +33,7 @@ $Employees = $EmployeeModel->getAllEmployee();
         </svg>
       </div>
     </div>
-    <div class="ems-sc__value" data-ems-count="<?= count($Employees) ?>">0</div>
+    <div class="ems-sc__value" data-ems-count="">0</div>
     <div class="ems-sc__sub">
       <span class="ems-sc__badge ems-bdg--up">100%</span>
       attendance rate

@@ -13,6 +13,16 @@ class Employee
     }
 
 
+    public function getEmployeeByName($fname, $lname)
+    {
+
+
+        $stmt = $this->conn->prepare("SELECT * FROM employees WHERE first_name = :fname AND last_name = :lname");
+        $stmt->execute([':fname' => $fname, ':lname' => $lname]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 
 
     public function getEmployeeById($id)
@@ -25,8 +35,9 @@ class Employee
     }
 
 
-     
-    public function getAllEmployee(){
+
+    public function getAllEmployee()
+    {
 
         $stmt = $this->conn->prepare('SELECT * FROM employees');
         $stmt->execute();
@@ -34,21 +45,30 @@ class Employee
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function addEmployee($firstname,$lastname,$department,$position,$email,$status,$date){
+    public function addEmployee($first_name, $last_name, $email, $phone, $address, $department, $position, $salary, $date_hired, $status)
+    {
 
-    
-    $sql = "INSERT INTO employees (user_id,name,department,position,contact,status,date_hired) VALUES (:userId, :fullname,:dapartment,:position,:contact,:status,:date_hired)";
 
-    $stmt = $this->conn->prepare($sql);
-    $stmt->execute([
-        ':fullname' => $firstname . $lastname,
-        ':department' => $department,
-        ':position' => $position,
-        ':contact' => $email,
-        ':status' => $status,
-        ':date_hired' => $date
-    ]);
+        try {
+            $sql = "INSERT INTO employees (first_name,last_name,email,phone,address,department_id,position_id,salary,date_hired,status) VALUES (:firstname, :lastname,:email,:phone,:address,:departmentId,:positionId,:salary,:date_hired,:status)";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ":firstname" => $first_name,
+                ":lastname" => $last_name,
+                ":email" => $email,
+                ":phone" => $phone,
+                ":address" => $address,
+                ":departmentId" => $department,
+                ":positionId" => $position,
+                ":salary" => $salary,
+                ":date_hired" => $date_hired,
+                ":status" => $status
+            ]);
+        } catch (PDOException $e) {
+            
+
+                 
+        }
     }
-
-
 }

@@ -1,10 +1,4 @@
-<?php
 
-
-include './controller/EmployeeController.php';
-include './controller/DepartmentController.php';
-
-?>
 
 <div class="main-em">
     <div class="page-head">
@@ -63,35 +57,24 @@ include './controller/DepartmentController.php';
                 <tbody id="empBody">
 
 
-                    <?php foreach ($Employees as $em): ?>
-
-                        
-                    
+                    <?php foreach ($Employees as $Em): ?>
 
 
 
-                        <tr data-dept="<?=0?>" data-status="<?= $em['status'] ?>">
+                        <tr data-dept="<?= 0 ?>" data-status="">
                             <td>
                                 <div class="emp-cell">
-                                    <div class="emp-av" style="background:#2263eb"><?php
-
-                                                                                    $names = explode(" ", $em['name']);
-                                                                                    $init =  strtoupper($names[0][0] . $names[1][0]);
-
-                                                                                    echo $init;
-
-
-                                                                                    ?> </div>
+                                    <div class="emp-av" style="background:#2263eb">AJ</div>
                                     <div>
-                                        <div class="emp-name"><?= $em['name'] ?></div>
-                                        <div class="emp-id">#EMP-<?= "0" . $em['employee_id'] ?></div>
+                                        <div class="emp-name"><?= $Em['first_name'] ?></div>
+                                        <div class="emp-id">#EMP-01</div>
                                     </div>
                                 </div>
                             </td>
-                            <td><span class="dept"><?= $Departments->getDepartmentById($em['department'])['department']?> </span></td>
-                            <td style="color:var(--muted)"><?= $em['position'] ?></td>
-                            <td style="font-family:'DM Mono',monospace;font-size:12px;color:var(--muted)"><?= $em['date_hired'] ?></td>
-                            <td><span class="pill <?= $em['status'] === "Active" ? 'pill-active' : 'pill-inactive' ?>"><?= $em['status'] ?></span></td>
+                            <td><span class="dept">IT </span></td>
+                            <td style="color:var(--muted)">Staff</td>
+                            <td style="font-family:'DM Mono',monospace;font-size:12px;color:var(--muted)">March,20,2026</td>
+                            <td><span class="pill <?= 'Active' === "Active" ? 'pill-active' : 'pill-inactive' ?>">Active</span></td>
                             <td>
                                 <div class="actions">
                                     <a href="employee_profile.html" class="act act-view" title="View">
@@ -118,7 +101,15 @@ include './controller/DepartmentController.php';
                             </td>
                         </tr>
 
+
                     <?php endforeach; ?>
+
+
+
+
+
+
+
 
                 </tbody>
             </table>
@@ -134,6 +125,7 @@ include './controller/DepartmentController.php';
     </div>
 
 
-   
+
 
 </div>
+

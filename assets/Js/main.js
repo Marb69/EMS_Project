@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (page == "admin") {
     Add_Employee();
+    
   }
 
   card_ani();

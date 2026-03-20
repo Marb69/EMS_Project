@@ -1,5 +1,15 @@
 <?php
 
+
+ require_once './config/db.php';
+ require_once './model/Department.php';
+ require_once './model/Employee.php';
+ require_once './model/Department.php';
+ require_once './model/Position.php';
+ require_once './model/User.php';
+
+
+
 session_start();
 
 
@@ -58,7 +68,7 @@ if (isset($_SESSION['user'], $_SESSION['role']) && $page === 'login') {
             break;
 
         case 'dashboard':
-            if ($_SESSION['role'] == 'admin') {
+            if ($_SESSION['role'] == 'admin') {     
                 include './view/admin.php';
             } else {
                 include './view/employee_pf.php';
