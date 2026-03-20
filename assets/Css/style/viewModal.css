@@ -1,0 +1,229 @@
+.vm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.vm-overlay.vm-open {
+  display: flex;
+}
+@keyframes vm-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.vm-modal {
+  background: var(--ep-surface);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  animation: vm-in 0.25s cubic-bezier(0.22, 0.68, 0, 1.2) both;
+}
+.vm-cover {
+  height: 80px;
+  background: linear-gradient(135deg, #1d4ed8, #2563eb, #3b82f6);
+  position: relative;
+}
+.vm-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 0,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 40px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.04) 0,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+}
+.vm-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 20px 16px;
+  margin-top: -28px;
+  position: relative;
+  z-index: 1;
+}
+.vm-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: "Syne", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  border: 3px solid var(--ep-surface);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+.vm-close {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 8px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--ep-muted);
+  margin-bottom: 4px;
+  transition: background 0.15s;
+}
+.vm-close:hover {
+  background: #e5e7eb;
+}
+.vm-close svg {
+  width: 14px;
+  height: 14px;
+}
+.vm-name {
+  font-family: "Syne", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ep-text);
+  margin-bottom: 3px;
+}
+.vm-role {
+  font-size: 12px;
+  color: var(--ep-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.vm-body {
+  padding: 0 20px 20px;
+}
+.vm-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--ep-muted);
+  margin: 16px 0 10px;
+}
+.vm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.vm-item {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.vm-item-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ep-muted);
+  margin-bottom: 3px;
+}
+.vm-item-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ep-text);
+}
+.vm-item.vm-full {
+  grid-column: 1/-1;
+}
+.vm-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+.vm-pill::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.vm-active {
+  background: #dcfce7;
+  color: #16a34a;
+}
+.vm-active::before {
+  background: #16a34a;
+}
+.vm-prob {
+  background: #fef3c7;
+  color: #d97706;
+}
+.vm-prob::before {
+  background: #d97706;
+}
+.vm-inactive {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+.vm-inactive::before {
+  background: #9ca3af;
+}
+.vm-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--ep-border);
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.vm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-family: "DM Sans", sans-serif;
+  transition: filter 0.15s;
+  text-decoration: none;
+}
+.vm-btn svg {
+  width: 14px;
+  height: 14px;
+}
+.vm-btn-primary {
+  background: #2563eb;
+  color: #fff;
+}
+.vm-btn-primary:hover {
+  filter: brightness(1.08);
+}
+.vm-btn-ghost {
+  background: #fff;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+}
+.vm-btn-ghost:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}

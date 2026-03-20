@@ -15,7 +15,7 @@
         </svg>
       </div>
     </div>
-    <div class="ems-sc__value" data-ems-count="">0</div>
+    <div class="ems-sc__value" data-ems-count=""><?= $EmCount?></div>
     <div class="ems-sc__sub">
 
       No record

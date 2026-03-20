@@ -5,6 +5,7 @@
 @import url("./style/overview.css");
 @import url("./style/employee.css");
 @import url("./style/add_employee.css");
+@import url("./style/viewModal.css");
 
 :root {
   --accent: #2563eb;

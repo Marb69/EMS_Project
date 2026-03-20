@@ -67,14 +67,14 @@
                                     <div class="emp-av" style="background:#2263eb">AJ</div>
                                     <div>
                                         <div class="emp-name"><?= $Em['first_name'] ?></div>
-                                        <div class="emp-id">#EMP-01</div>
+                                        <div class="emp-id">#EM-0<?= $Em['id'] ?></div>
                                     </div>
                                 </div>
                             </td>
-                            <td><span class="dept">IT </span></td>
-                            <td style="color:var(--muted)">Staff</td>
-                            <td style="font-family:'DM Mono',monospace;font-size:12px;color:var(--muted)">March,20,2026</td>
-                            <td><span class="pill <?= 'Active' === "Active" ? 'pill-active' : 'pill-inactive' ?>">Active</span></td>
+                            <td><span class="dept" ><?= $Departments->getDepartmentById($Em['department_id'])['name']?> </span></td>
+                            <td style="color:var(--muted)"><?=$Position->getPositionById($Em['position_id'])['title']  ?></td>
+                            <td style="font-family:'DM Mono',monospace;font-size:12px;color:var(--muted)"><?= $Em['date_hired'] ?></td>
+                            <td><span class="pill <?= $Em['status'] === "active" ? 'pill-active' : 'pill-inactive' ?>">Active</span></td>
                             <td>
                                 <div class="actions">
                                     <a href="employee_profile.html" class="act act-view" title="View">

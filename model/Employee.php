@@ -13,6 +13,24 @@ class Employee
     }
 
 
+    public function getCountOfEmployee()
+    {
+
+
+        $stmt = $this->conn->prepare("SELECT COUNT(*) as total FROM employees");
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+    }
+
+    public function getEmployeeByEmail($email)
+    {
+
+        $stmt = $this->conn->prepare('SELECT * FROM employees WHERE email = ?');
+        $stmt->execute([$email]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function getEmployeeByName($fname, $lname)
     {
 
@@ -66,9 +84,6 @@ class Employee
                 ":status" => $status
             ]);
         } catch (PDOException $e) {
-            
-
-                 
         }
     }
 }

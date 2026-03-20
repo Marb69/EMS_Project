@@ -35,7 +35,7 @@
                     <path d="M21 21v-2a4 4 0 0 0-3-3.85" />
                 </svg>
                 Employees
-                <span class="nav-badge">2</span>
+               
             </a>
             <a href="index.php?page=admin&section=departments" class="nav-item ">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

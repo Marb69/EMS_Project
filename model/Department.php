@@ -18,7 +18,7 @@
     {
 
 
-        $stmt = $this->conn->prepare("SELECT * FROM departments WHERE department_id = ?");
+        $stmt = $this->conn->prepare("SELECT * FROM departments WHERE id = ?");
         $stmt->execute([$id]);
 
         return $stmt->fetch(PDO::FETCH_ASSOC);

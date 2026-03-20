@@ -6,6 +6,9 @@ $EmployeeModel = new Employee($conn);
 $UserModel = new User($conn);
 
 $Employees = $EmployeeModel->getAllEmployee();
+$EmCount = $EmployeeModel->getCountOfEmployee();
+
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -28,14 +31,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     $employee = $EmployeeModel->getEmployeeByName($first_name, $last_name);
-
+    $EmEmail = $EmployeeModel->getEmployeeByEmail($email);
+    $UrUsername = $UserModel->getUserByUsername($username);
 
     if ($employee) {
 
 
-  json_encode(['status' => 'exists', 'identifier' => $first_name . ' ' . $last_name]);
+        echo 'Employee is already exist';
+  
 
         return;
+    } else if ($EmEmail) {
+
+        echo 'Email is already  use';
+    } else if ($UrUsername) {
+
+        echo 'Username is Already user';
     } else {
 
 
@@ -49,5 +60,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ob_end_flush();
-
-?>

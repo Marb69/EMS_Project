@@ -2,7 +2,7 @@
 include './controller/DepartmentController.php';
 include './controller/PostionController.php';
 
-include './view/alert.php';
+
 ?>
 
 <?php if (isset($error)): ?>
