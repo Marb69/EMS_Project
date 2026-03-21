@@ -14,16 +14,17 @@ class User
     }
 
 
-    public function addUser($username, $password, $role)
+    public function addUser($username, $password, $role,$employee_id)
     {
 
-        $sql = "INSERT INTO users (username,password,role) VALUES (:username,:password,:role)";
+        $sql = "INSERT INTO users (username,password,role,employee_id) VALUES (:username,:password,:role,:employeeid)";
         $stmt = $this->conn->prepare($sql);
 
         $stmt->execute([
             ':username' => $username,
             ':password' => $password,
-            ':role' => $role
+            ':role' => $role,
+            ':employeeid' =>$employee_id
         ]);
     }
 

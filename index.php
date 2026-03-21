@@ -1,44 +1,41 @@
 <?php
 
 
-require_once './config/db.php';
-require_once './model/Department.php';
-require_once './model/Employee.php';
-require_once './model/Department.php';
-require_once './model/Position.php';
-require_once './model/User.php';
-include './controller/DepartmentController.php';
-include './controller/PostionController.php';
-include './controller/EmployeeController.php';
-
-
 session_start();
 
 
+require_once './config/db.php';
+require_once './model/Department.php';
+require_once './model/Employee.php';
+require_once './model/Position.php';
+require_once './model/User.php';
+
+
+include './controller/PostionController.php';
+
+
+
+$page = $_GET['page'] ?? 'login';
 
 include './middleware/auth_check.php';
 
 
-
-if (isset($_SESSION['user'], $_SESSION['role']) && $page === 'login') {
-
-
-    if ($_SESSION['role'] == 'admin') {
-        header("Location: index.php?page=admin");
-        exit;
-    } elseif ($_SESSION['role'] == 'employee') {
-
-        header("Location: index.php?page=employee_pf");
-        exit;
+function require_role(string $role): void
+{
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== $role) {
+        header('Location: index.php?page=login');
+        exit();
     }
 }
 
+
+if (isset($_SESSION['user'], $_SESSION['role']) && $page === 'login') {
+    $redirect = $_SESSION['role'] === 'admin' ? 'admin' : 'employee_pf';
+    header("Location: index.php?page={$redirect}");
+    exit();
+}
+
 ?>
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,34 +44,20 @@ if (isset($_SESSION['user'], $_SESSION['role']) && $page === 'login') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/Css/main.css">
     <link rel="shortcut icon" href="./favicon/favicon.ico" type="image/x-icon">
-    <title><?= $page ?></title>
+    <title><?= htmlspecialchars($page) ?></title>
 </head>
 
 <body data-page="<?= $page ?>">
-    <?php
 
-    $page = $_GET['page'] ?? 'login';
-
-
-    function require_role($role)
-    {
-        if (!isset($_SESSION['role']) || $_SESSION['role'] != $role) {
-            header("Location: index.php?page=dashboard");
-            exit();
-        }
-    }
-
-    switch ($page) {
+    <?php switch ($page) {
         case 'login':
             include './auth/login_page.php';
             break;
 
         case 'dashboard':
-            if ($_SESSION['role'] == 'admin') {
-                include './view/admin.php';
-            } else {
-                include './view/employee_pf.php';
-            }
+          
+            $view = ($_SESSION['role'] ?? '') === 'admin' ? 'admin' : 'employee_pf';
+            include "./view/{$view}.php";
             break;
 
         case 'employee_pf':
@@ -91,12 +74,7 @@ if (isset($_SESSION['user'], $_SESSION['role']) && $page === 'login') {
             include './view/404.php';
     } ?>
 
-
-
     <script type="module" src="./assets/Js/main.js"></script>
-
-
-
 
 </body>
 

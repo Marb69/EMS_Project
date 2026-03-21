@@ -1,50 +1,43 @@
 <?php
 
-
-
 include "../config/db.php";
 
 session_start();
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-$role = $_POST['role'];
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: ../index.php?page=login');
+    exit();
+}
+
+$username = $_POST['username'] ?? '';
+$password = $_POST['password'] ?? '';
 
 try {
-
-    $sql = "SELECT * FROM users WHERE username = :username LIMIT 1";
-    $stmt = $conn->prepare($sql);
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = :username LIMIT 1");
     $stmt->execute([':username' => $username]);
-
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
-    if ($user && $user['password'] == $password) {
+    if ($user && password_verify($password, $user['password'])) {
 
+        $_SESSION['user']    = $user['username'];
+        $_SESSION['role']    = $user['role'];
+        $_SESSION['user_id'] = $user['employee_id'];
 
-        $_SESSION['user'] = $user['username'];
-        $_SESSION['role'] = $user['role'];
-        $_SESSION['user_id'] = $user['id'];
+        $redirect = $user['role'] === 'admin' ? 'admin' : 'employee_pf';
+        header("Location: ../index.php?page={$redirect}");
+        exit();
 
-
-        if ($user['role'] == "admin") {
-
-            header('location: ../index.php?page=admin');
-
-            exit;
-        } elseif ($user['role'] == 'employee') {
-
-            header('location: ../index.php?page=employee_pf');
-            exit;
-        }
     } else {
-
-
-        header('location: ../index.php?page=login');
-        exit;
+      
+        header('Location: ../index.php?page=login&error=invalid');
+        exit();
     }
-} catch (PDOException $e) {
 
-    echo "ERRR: " . $e;
+} catch (PDOException $e) {
+  
+    error_log($e->getMessage()); 
+    header('Location: ../index.php?page=login&error=server');
+    exit();
 }

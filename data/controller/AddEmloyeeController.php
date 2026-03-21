@@ -5,8 +5,7 @@ ob_start();
 $EmployeeModel = new Employee($conn);
 $UserModel = new User($conn);
 
-$Employees = $EmployeeModel->getAllEmployee();
-$EmCount = $EmployeeModel->getCountOfEmployee();
+
 
 
 
@@ -55,8 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $UserModel->addUser($username, $password, $role);
         $_POST = [];
 
-        header('location: index.php?page=admin&section=employees');
+       
+      
     }
 }
 
 ob_end_flush();
+?>

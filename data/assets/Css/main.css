@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("./style/profile.css");
+@import url("./style/login.css");
+@import url("./style/dashboard.css");
+@import url("./style/overview.css");
+@import url("./style/employee.css");
+@import url("./style/add_employee.css");
+@import url("./style/viewModal.css");
+
+:root {
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --accent-glow: rgba(37, 99, 235, 0.18);
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --danger: #dc2626;
+  --radius: 10px;
+  --sidebar-w: 260px;
+  --header-h: 64px;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --sidebar-bg: #0f172a;
+  --sidebar-txt: #cbd5e1;
+  --sidebar-sub: #64748b;
+  --accent-lt: #dbeafe;
+  --accent-lt: #eff6ff;
+  --green: #16a34a;
+  --green-lt: #dcfce7;
+  --amber: #d97706;
+  --amber-lt: #fef3c7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+}

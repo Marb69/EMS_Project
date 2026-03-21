@@ -1,5 +1,3 @@
-
-
 <div class="page">
 
   <div class="login-panel">

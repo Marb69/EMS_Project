@@ -1,0 +1,429 @@
+.page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.login-panel {
+  width: 100%;
+  max-width: 480px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 8vw, 4rem) clamp(2rem, 6vw, 3.5rem);
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.75rem;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--accent);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.brand-text {
+  line-height: 1.2;
+}
+.brand-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.brand-sub {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.heading {
+  margin-bottom: 2rem;
+}
+.heading h1 {
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
+}
+
+.heading p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.error-msg {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: var(--danger);
+  font-size: 0.825rem;
+  font-weight: 500;
+  border-radius: var(--radius);
+  padding: 0.65rem 0.9rem;
+  margin-bottom: 1.1rem;
+}
+#loginForm .field {
+  margin-bottom: 1rem;
+}
+
+#loginForm .field label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap .icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+  display: flex;
+  transition: color 0.2s;
+}
+
+#loginForm  input[type="text"],
+#loginForm  input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.6rem;
+  background: #f9fafb;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+  appearance: none;
+}
+#loginForm  input::placeholder {
+  color: #9ca3af;
+}
+#loginForm input:focus {
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+.input-wrap:focus-within .icon {
+  color: var(--accent);
+}
+
+.toggle-pw {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9ca3af;
+  display: flex;
+  padding: 2px;
+  transition: color 0.2s;
+}
+.toggle-pw:hover {
+  color: var(--muted);
+}
+
+.btn {
+  width: 100%;
+  margin-top: 1.6rem;
+  padding: 0.8rem;
+  background: var(--accent);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s,
+    box-shadow 0.15s;
+  letter-spacing: 0.01em;
+}
+.btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.login-footer {
+  margin-top: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+}
+.login-footer strong {
+  color: var(--text);
+}
+
+.copyright {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.72rem;
+  color: #d1d5db;
+}
+
+.image-panel {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.image-panel img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.image-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(30, 58, 138, 0.72) 0%,
+    rgba(37, 99, 235, 0.55) 50%,
+    rgba(17, 24, 39, 0.7) 100%
+  );
+}
+
+.image-content {
+  position: relative;
+  z-index: 1;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  color: #fff;
+  max-width: 520px;
+}
+
+.image-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  padding: 0.3rem 0.9rem;
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(4px);
+}
+.image-badge span {
+  width: 6px;
+  height: 6px;
+  background: #93c5fd;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.image-content h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.image-content h2 em {
+  font-style: normal;
+  color: #93c5fd;
+}
+
+.image-content p {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+  max-width: 420px;
+}
+
+.team-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.team-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.team-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.02em;
+}
+
+.team-info {
+  line-height: 1.3;
+}
+.team-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+}
+.team-role {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.role-badge {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 100px;
+  border: 1px solid;
+  flex-shrink: 0;
+}
+.role-dev {
+  color: #93c5fd;
+  border-color: rgba(147, 197, 253, 0.35);
+  background: rgba(147, 197, 253, 0.1);
+}
+.role-des {
+  color: #c4b5fd;
+  border-color: rgba(196, 181, 253, 0.35);
+  background: rgba(196, 181, 253, 0.1);
+}
+.role-test {
+  color: #6ee7b7;
+  border-color: rgba(110, 231, 183, 0.35);
+  background: rgba(110, 231, 183, 0.1);
+}
+
+.role-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.role-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.5rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: #f9fafb;
+  color: var(--muted);
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+.role-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(37, 99, 235, 0.04);
+}
+.role-btn.active {
+  border-color: var(--accent);
+  background: rgba(37, 99, 235, 0.07);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .page {
+    flex-direction: column;
+  }
+  .login-panel {
+    max-width: 100%;
+    padding: 2.5rem 1.5rem 2rem;
+  }
+  .image-panel {
+    min-height: 280px;
+    align-items: center;
+    justify-content: center;
+  }
+  .image-content {
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .image-content p {
+    margin: 0 auto 1.5rem;
+  }
+  .team-list {
+    align-items: stretch;
+  }
+  .copyright {
+    display: none;
+  }
+}
