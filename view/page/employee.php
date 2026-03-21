@@ -1,5 +1,3 @@
-
-
 <div class="main-em">
     <div class="page-head">
         <div>
@@ -26,17 +24,16 @@
         </div>
         <select class="filter-select" id="deptFilter">
             <option value="">All Departments</option>
-            <option>Engineering</option>
-            <option>Sales</option>
-            <option>HR & Admin</option>
-            <option>Operations</option>
-            <option>IT</option>
+            <option value="engineering">Engineering</option>
+            <option value="sales">Sales</option>
+            <option value="operations">Operations</option>
+            <option value="IT">IT</option>
         </select>
         <select class="filter-select" id="statusFilter">
             <option value="">All Status</option>
-            <option>Active</option>
-            <option>Probationary</option>
-            <option>Inactive</option>
+            <option value="active">Active</option>
+            <option value="probationary">Probationary</option>
+            <option value="inactive">Inactive</option>
         </select>
     </div>
 
@@ -61,7 +58,7 @@
 
 
 
-                        <tr data-dept="<?= 0 ?>" data-status="">
+                        <tr data-dept="<?= $Departments->getDepartmentById($Em['department_id'])['name'] ?>" data-status="<?= $Em['status'] ?>">
                             <td>
                                 <div class="emp-cell">
                                     <div class="emp-av" style="background:#2263eb">AJ</div>
@@ -71,8 +68,8 @@
                                     </div>
                                 </div>
                             </td>
-                            <td><span class="dept" ><?= $Departments->getDepartmentById($Em['department_id'])['name']?> </span></td>
-                            <td style="color:var(--muted)"><?=$Position->getPositionById($Em['position_id'])['title']  ?></td>
+                            <td><span class="dept"><?= $Departments->getDepartmentById($Em['department_id'])['name'] ?> </span></td>
+                            <td style="color:var(--muted)"><?= $Position->getPositionById($Em['position_id'])['title']  ?></td>
                             <td style="font-family:'DM Mono',monospace;font-size:12px;color:var(--muted)"><?= $Em['date_hired'] ?></td>
                             <td><span class="pill <?= $Em['status'] === "active" ? 'pill-active' : 'pill-inactive' ?>">Active</span></td>
                             <td>
@@ -89,14 +86,18 @@
                                             <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4z" />
                                         </svg>
                                     </button>
-                                    <button class="act act-del" title="Delete">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polyline points="3 6 5 6 21 6" />
-                                            <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-                                            <path d="M10 11v6" />
-                                            <path d="M14 11v6" />
-                                        </svg>
-                                    </button>
+
+                                    <form action="" method="POST">
+
+                                        <button class="act act-del" title="Delete" type="submit">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <polyline points="3 6 5 6 21 6" />
+                                                <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                                                <path d="M10 11v6" />
+                                                <path d="M14 11v6" />
+                                            </svg>
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
@@ -128,4 +129,3 @@
 
 
 </div>
-

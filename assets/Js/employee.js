@@ -14,6 +14,7 @@ export const Employee = () => {
   onchange.forEach((oh) => {
     oh.addEventListener("change", () => {
       filterTable();
+     
     });
   });
 
@@ -23,9 +24,11 @@ export const Employee = () => {
     var status = Status.value;
 
     var count = 0;
-
+  debugger
     rows.forEach(function (row) {
       var match =
+
+     
         row.textContent.toLowerCase().includes(search) &&
         (dept === "" || row.dataset.dept === dept) &&
         (status === "" || row.dataset.status === status);
