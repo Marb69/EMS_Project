@@ -3,15 +3,16 @@
 
 
 
-$Departments = new Department($conn);
+$DepartmentModel = new Department($conn);
 
 
-$AllDept = $Departments->getAllDepartments();
+$AllDept = $DepartmentModel->getAllDepartments();
 
 
 
 
 
+$DeptCount       = $DepartmentModel->getCountOfDepartments();
 
 
 

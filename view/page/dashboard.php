@@ -1,7 +1,4 @@
-
-
 <div class="ems-stats">
-
 
   <div class="ems-sc ems-sc--blue">
     <div class="ems-sc__top">
@@ -15,31 +12,28 @@
         </svg>
       </div>
     </div>
-    <div class="ems-sc__value" data-ems-count=""><?= $EmCount?></div>
-    <div class="ems-sc__sub">
-
-      No record
-    </div>
+    <div class="ems-sc__value" data-ems-count=""><?= $EmCount ?></div>
+    
   </div>
 
 
   <div class="ems-sc ems-sc--green">
     <div class="ems-sc__top">
-      <span class="ems-sc__label">Present Today</span>
+      <span class="ems-sc__label">Departments</span>
       <div class="ems-sc__icon ems-ic--green">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M9 11l3 3L22 4" />
-          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+          <rect x="2" y="7" width="6" height="13" rx="1" />
+          <rect x="9" y="3" width="6" height="17" rx="1" />
+          <rect x="16" y="10" width="6" height="10" rx="1" />
         </svg>
       </div>
     </div>
-    <div class="ems-sc__value" data-ems-count="">0</div>
+    <div class="ems-sc__value" data-ems-count=""><?= $DeptCount ?></div>
     <div class="ems-sc__sub">
-      <span class="ems-sc__badge ems-bdg--up">100%</span>
-      attendance rate
+      <span class="ems-sc__badge ems-bdg--up"><?= $DeptCount ?></span>
+      active departments
     </div>
   </div>
-
 
   <div class="ems-sc ems-sc--amber">
     <div class="ems-sc__top">
@@ -53,13 +47,12 @@
         </svg>
       </div>
     </div>
-    <div class="ems-sc__value" data-ems-count="<?=0 ?>">0</div>
+    <div class="ems-sc__value" data-ems-count="<?= 0 ?>">0</div>
     <div class="ems-sc__sub">
       <span class="ems-sc__badge ems-bdg--warn">0 pending</span>
       approval
     </div>
   </div>
-
 
   <div class="ems-sc ems-sc--danger">
     <div class="ems-sc__top">
@@ -73,9 +66,7 @@
       </div>
     </div>
     <div class="ems-sc__value" data-ems-count="<?= 0 ?>">0</div>
-    <div class="ems-sc__sub">
-
-    </div>
+    <div class="ems-sc__sub"></div>
   </div>
 
 </div>

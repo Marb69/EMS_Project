@@ -73,7 +73,7 @@ function getInitials(string $firstName, string $lastName): string
 
                     <?php foreach ($Employees as $Em):
 
-                        $department = $Departments->getDepartmentById($Em['department_id']);
+                        $department = $DepartmentModel->getDepartmentById($Em['department_id']);
                         $position   = $Position->getPositionById($Em['position_id']);
                         $deptName   = htmlspecialchars($department['name'] ?? '—');
                         $posTitle   = htmlspecialchars($position['title'] ?? '—');
@@ -104,12 +104,7 @@ function getInitials(string $firstName, string $lastName): string
                             </td>
                             <td>
                                 <div class="actions">
-                                    <a href="employee_profile.html" class="act act-view" title="View">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                            <circle cx="12" cy="12" r="3" />
-                                        </svg>
-                                    </a>
+                                
                                     <button class="act act-edit" title="Edit" type="button">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />

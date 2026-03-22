@@ -5,6 +5,7 @@ $section = $_GET['section'] ?? 'overview';
 switch ($section) {
     case 'overview':
 
+        include './controller/DepartmentController.php';
         include './controller/GetEmployeeController.php';
         include './view/page/dashboard.php';
         break;
@@ -17,6 +18,7 @@ switch ($section) {
         break;
 
     case 'departments':
+           include './controller/DepartmentController.php';
         include './view/page/department.php';
         break;
 
